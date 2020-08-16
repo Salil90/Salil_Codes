@@ -9,13 +9,13 @@ ax = plt.gca()
 # We examine dynamics when two are same and when two are different
 
 D11=-1
-D22=-1
+D22=-1                 # These parameters correpsind to the diagonal elements of dipole tensor
 D33=2
 
 A11=-1
-A22=-1
+A22=-1                # Hyperfine interaction parameters
 A33=2
-Bx=0.001
+Bx=0.001              # Components of external magnetic fields 
 By=0.001
 Bz=0.1
 
@@ -64,7 +64,7 @@ rhoN=0.5*tensor(qeye(2))
 rhoe=singlet_state()*singlet_state().dag()
 rho0=tensor(rhoe, rhoN)
 
-K=10
+K=10          # Recombination rate
 c=tensor(sigmax(), qeye(2), qeye(2))
 
 times = np.linspace(0.0, 100.0, 1000.0)
