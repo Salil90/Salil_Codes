@@ -6,7 +6,8 @@ import numpy as np
 from qutip import *
 from scipy import *
 
-
+# This code simulates the quantum dynamics of LZ transitions for 1D random transverse field Ising model
+# It plots the ground and the first excited state probabilities for a linear sweep
 
 
 N = 9   # number of spins
@@ -62,9 +63,8 @@ for n in range(N):
 H1 = 0    
 for n in range(N-2):
     # interaction terms
-    #H1 += - 0.5 * Jx[n] * sx_list[n] * sx_list[n+1]
-    #H1 += - 0.5 * Jy[n] * sy_list[n] * sy_list[n+1]
-    H1 += - 0.5 * Jz[n] * sz_list[n] * sz_list[n+1]*sz_list[n+2]
+    #H1 += - 0.5 * Jx[n] * sx_list[n] * sx_list[n+1]       # Uncomment this term to include xx driver interaction
+    H1 += - 0.5 * Jz[n] * sz_list[n] * sz_list[n+1]*sz_list[n+2]    # zz interaction term
 
 # the time-dependent hamiltonian in list-function format
 args = {'t_max': max(taulist)}
